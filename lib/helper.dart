@@ -7,11 +7,12 @@ bool ifequal(List a, List b){
       else {
         return false;
       }
+
     }
   }
   else{
     return true;
   }
 
-  return false;
+  return true;
 }
