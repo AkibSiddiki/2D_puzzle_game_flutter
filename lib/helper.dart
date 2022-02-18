@@ -11,7 +11,7 @@ bool ifequal(List a, List b){
     }
   }
   else{
-    return true;
+    return false;
   }
 
   return true;
