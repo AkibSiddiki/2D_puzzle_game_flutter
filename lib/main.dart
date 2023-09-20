@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:twod_puzzle/helper.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 
-void main() => runApp(Phoenix(child: const MyApp())); 
+void main() => runApp(Phoenix(child: const MyApp()));
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: '2D Puzzle Game',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -29,8 +29,8 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   List goal = ['1', '2', '3', '4', '5', '6', '7', '8', '0'];
   late List start;
-  int moves=0;
-  bool gameRunning=true;
+  int moves = 0;
+  bool gameRunning = true;
 
   @override
   void initState() {
@@ -53,9 +53,9 @@ class _HomeState extends State<Home> {
         start[posX] = start[posY];
         start[posY] = temp;
         moves++;
-        if(ifequal(start, goal)){
+        if (ifequal(start, goal)) {
           setState(() {
-            gameRunning=false;
+            gameRunning = false;
           });
         }
       });
@@ -128,13 +128,23 @@ class _HomeState extends State<Home> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Visibility(
-              visible: !gameRunning,
-              child: const Text('Nice job!!! You Done It!!!', style: TextStyle(fontSize: 22, color: Colors.black87),)),
+                visible: !gameRunning,
+                child: const Text(
+                  'Nice job!!! You Done It!!!',
+                  style: TextStyle(fontSize: 22, color: Colors.black87),
+                )),
             Visibility(
-              visible: !gameRunning,
-              child: const SizedBox(height: 32,)),
-            Text('Total Moves: $moves', style: const TextStyle(fontSize: 22, color: Colors.black87),),
-            const SizedBox(height: 32,),
+                visible: !gameRunning,
+                child: const SizedBox(
+                  height: 32,
+                )),
+            Text(
+              'Total Moves: $moves',
+              style: const TextStyle(fontSize: 22, color: Colors.black87),
+            ),
+            const SizedBox(
+              height: 32,
+            ),
             SizedBox(
               width: 336,
               child: Wrap(spacing: 12, runSpacing: 12, children: <Widget>[
@@ -302,11 +312,17 @@ class _HomeState extends State<Home> {
                 ),
               ]),
             ),
-            const SizedBox(height: 32,),
+            const SizedBox(
+              height: 32,
+            ),
             ElevatedButton(
-              onPressed:(){ Phoenix.rebirth(context); },
-              child: const Text('New Game', style: TextStyle(fontSize: 20),)
-              )
+                onPressed: () {
+                  Phoenix.rebirth(context);
+                },
+                child: const Text(
+                  'New Game',
+                  style: TextStyle(fontSize: 20),
+                ))
           ],
         ),
       ),
