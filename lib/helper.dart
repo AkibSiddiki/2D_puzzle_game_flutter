@@ -1,18 +1,14 @@
-bool ifequal(List a, List b){
-  if(a.length==b.length){
-    for(int i=0;i<b.length;i++){
-      if(a[i]==b[i]){
+bool ifequal(List a, List b) {
+  if (a.length == b.length) {
+    for (int i = 0; i < b.length; i++) {
+      if (a[i] == b[i]) {
         continue;
-      }
-      else {
+      } else {
         return false;
       }
-
     }
-  }
-  else{
+  } else {
     return false;
   }
-
   return true;
 }

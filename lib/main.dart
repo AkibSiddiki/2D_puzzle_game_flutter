@@ -27,8 +27,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List goal = ['1', '2', '3', '4', '5', '6', '7', '8', '0'];
-  late List start;
+  final List<int> goal = [1, 2, 3, 4, 5, 6, 7, 8, 0];
+  List<int> start = [1, 2, 3, 4, 5, 6, 7, 8, 0];
   int moves = 0;
   bool gameRunning = true;
 
@@ -39,7 +39,6 @@ class _HomeState extends State<Home> {
   }
 
   shuffler() {
-    start = goal;
     setState(() {
       start.shuffle();
     });
@@ -48,8 +47,8 @@ class _HomeState extends State<Home> {
   swapPosition(int posX) {
     if (isEmptyAround(posX) && gameRunning) {
       setState(() {
-        int posY = start.indexOf('0');
-        String temp = start[posX];
+        int posY = start.indexOf(0);
+        int temp = start[posX];
         start[posX] = start[posY];
         start[posY] = temp;
         moves++;
@@ -64,42 +63,39 @@ class _HomeState extends State<Home> {
 
   bool isEmptyAround(int x) {
     if (x == 0) {
-      if (start[1] == '0' || start[3] == '0') {
+      if (start[1] == 0 || start[3] == 0) {
         return true;
       }
     } else if (x == 1) {
-      if (start[0] == '0' || start[2] == '0' || start[4] == '0') {
+      if (start[0] == 0 || start[2] == 0 || start[4] == 0) {
         return true;
       }
     } else if (x == 2) {
-      if (start[1] == '0' || start[5] == '0') {
+      if (start[1] == 0 || start[5] == 0) {
         return true;
       }
     } else if (x == 3) {
-      if (start[0] == '0' || start[4] == '0' || start[6] == '0') {
+      if (start[0] == 0 || start[4] == 0 || start[6] == 0) {
         return true;
       }
     } else if (x == 4) {
-      if (start[1] == '0' ||
-          start[3] == '0' ||
-          start[5] == '0' ||
-          start[7] == '0') {
+      if (start[1] == 0 || start[3] == 0 || start[5] == 0 || start[7] == 0) {
         return true;
       }
     } else if (x == 5) {
-      if (start[2] == '0' || start[4] == '0' || start[8] == '0') {
+      if (start[2] == 0 || start[4] == 0 || start[8] == 0) {
         return true;
       }
     } else if (x == 6) {
-      if (start[3] == '0' || start[7] == '0') {
+      if (start[3] == 0 || start[7] == 0) {
         return true;
       }
     } else if (x == 7) {
-      if (start[6] == '0' || start[4] == '0' || start[8] == '0') {
+      if (start[6] == 0 || start[4] == 0 || start[8] == 0) {
         return true;
       }
     } else if (x == 8) {
-      if (start[5] == '0' || start[7] == '0') {
+      if (start[5] == 0 || start[7] == 0) {
         return true;
       }
     } else {
@@ -147,7 +143,7 @@ class _HomeState extends State<Home> {
             ),
             SizedBox(
               width: 336,
-              child: Wrap(spacing: 12, runSpacing: 12, children: <Widget>[
+              child: Wrap(spacing: 6, runSpacing: 6, children: <Widget>[
                 GestureDetector(
                   onTap: () {
                     swapPosition(0);
@@ -155,13 +151,13 @@ class _HomeState extends State<Home> {
                   child: Container(
                     height: 100,
                     width: 100,
-                    color: start[0] == '0' ? Colors.white : Colors.yellow,
+                    color: start[0] == 0 ? Colors.white : Colors.yellow,
                     child: Center(
                         child: Text(
-                      start[0],
+                      start[0].toString(),
                       style: TextStyle(
                         fontSize: 44,
-                        color: start[0] == '0' ? Colors.white : Colors.black,
+                        color: start[0] == 0 ? Colors.white : Colors.black,
                       ),
                     )),
                   ),
@@ -173,13 +169,13 @@ class _HomeState extends State<Home> {
                   child: Container(
                     height: 100,
                     width: 100,
-                    color: start[1] == '0' ? Colors.white : Colors.yellow,
+                    color: start[1] == 0 ? Colors.white : Colors.yellow,
                     child: Center(
                         child: Text(
-                      start[1],
+                      start[1].toString(),
                       style: TextStyle(
                         fontSize: 44,
-                        color: start[1] == '0' ? Colors.white : Colors.black,
+                        color: start[1] == 0 ? Colors.white : Colors.black,
                       ),
                     )),
                   ),
@@ -191,13 +187,13 @@ class _HomeState extends State<Home> {
                   child: Container(
                     height: 100,
                     width: 100,
-                    color: start[2] == '0' ? Colors.white : Colors.yellow,
+                    color: start[2] == 0 ? Colors.white : Colors.yellow,
                     child: Center(
                         child: Text(
-                      start[2],
+                      start[2].toString(),
                       style: TextStyle(
                         fontSize: 44,
-                        color: start[2] == '0' ? Colors.white : Colors.black,
+                        color: start[2] == 0 ? Colors.white : Colors.black,
                       ),
                     )),
                   ),
@@ -209,13 +205,13 @@ class _HomeState extends State<Home> {
                   child: Container(
                     height: 100,
                     width: 100,
-                    color: start[3] == '0' ? Colors.white : Colors.yellow,
+                    color: start[3] == 0 ? Colors.white : Colors.yellow,
                     child: Center(
                         child: Text(
-                      start[3],
+                      start[3].toString(),
                       style: TextStyle(
                         fontSize: 44,
-                        color: start[3] == '0' ? Colors.white : Colors.black,
+                        color: start[3] == 0 ? Colors.white : Colors.black,
                       ),
                     )),
                   ),
@@ -227,13 +223,13 @@ class _HomeState extends State<Home> {
                   child: Container(
                     height: 100,
                     width: 100,
-                    color: start[4] == '0' ? Colors.white : Colors.yellow,
+                    color: start[4] == 0 ? Colors.white : Colors.yellow,
                     child: Center(
                         child: Text(
-                      start[4],
+                      start[4].toString(),
                       style: TextStyle(
                         fontSize: 44,
-                        color: start[4] == '0' ? Colors.white : Colors.black,
+                        color: start[4] == 0 ? Colors.white : Colors.black,
                       ),
                     )),
                   ),
@@ -245,13 +241,13 @@ class _HomeState extends State<Home> {
                   child: Container(
                     height: 100,
                     width: 100,
-                    color: start[5] == '0' ? Colors.white : Colors.yellow,
+                    color: start[5] == 0 ? Colors.white : Colors.yellow,
                     child: Center(
                         child: Text(
-                      start[5],
+                      start[5].toString(),
                       style: TextStyle(
                         fontSize: 44,
-                        color: start[5] == '0' ? Colors.white : Colors.black,
+                        color: start[5] == 0 ? Colors.white : Colors.black,
                       ),
                     )),
                   ),
@@ -263,13 +259,13 @@ class _HomeState extends State<Home> {
                   child: Container(
                     height: 100,
                     width: 100,
-                    color: start[6] == '0' ? Colors.white : Colors.yellow,
+                    color: start[6] == 0 ? Colors.white : Colors.yellow,
                     child: Center(
                         child: Text(
-                      start[6],
+                      start[6].toString(),
                       style: TextStyle(
                         fontSize: 44,
-                        color: start[6] == '0' ? Colors.white : Colors.black,
+                        color: start[6] == 0 ? Colors.white : Colors.black,
                       ),
                     )),
                   ),
@@ -281,13 +277,13 @@ class _HomeState extends State<Home> {
                   child: Container(
                     height: 100,
                     width: 100,
-                    color: start[7] == '0' ? Colors.white : Colors.yellow,
+                    color: start[7] == 0 ? Colors.white : Colors.yellow,
                     child: Center(
                         child: Text(
-                      start[7],
+                      start[7].toString(),
                       style: TextStyle(
                         fontSize: 44,
-                        color: start[7] == '0' ? Colors.white : Colors.black,
+                        color: start[7] == 0 ? Colors.white : Colors.black,
                       ),
                     )),
                   ),
@@ -299,13 +295,13 @@ class _HomeState extends State<Home> {
                   child: Container(
                     height: 100,
                     width: 100,
-                    color: start[8] == '0' ? Colors.white : Colors.yellow,
+                    color: start[8] == 0 ? Colors.white : Colors.yellow,
                     child: Center(
                         child: Text(
-                      start[8],
+                      start[8].toString(),
                       style: TextStyle(
                         fontSize: 44,
-                        color: start[8] == '0' ? Colors.white : Colors.black,
+                        color: start[8] == 0 ? Colors.white : Colors.black,
                       ),
                     )),
                   ),
